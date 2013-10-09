@@ -1,0 +1,21 @@
+{
+	"name": "Earthquake",
+	"description": "List of Earthquakes",
+	"version": "1.0",
+	"launch_path": "/index.html",
+	"icons": {
+		"128": "/icons/128.png",
+		"60": "/icons/60.png"
+	},
+	"developer": {
+		"name": "Willy Aguirre",
+		"url": "http://willyaguirre.me/"
+	},
+	"locales": {
+		"en": {
+			"name": "Earthquake",
+			"description": "List of Earthquakes"
+		}
+	},
+	"default_locale": "en"
+}
