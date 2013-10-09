@@ -1,18 +1,19 @@
 $(document).on('ready',function(){
+	
+	function popUp(feature, layer) {
+		layer.bindPopup(feature.properties.mag);
+	}	
+	
+	var layerMap = L.tileLayer('http://{s}.tile.cloudmade.com/6798e89110614f5a9da04c5cd2918bf1/997/256/{z}/{x}/{y}.png', {    
+	    maxZoom: 20
+	});
+
+	//L.geoJson(geoJsonData).addTo(map);
+	var geojsonLayer = new L.GeoJSON.AJAX("http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson",{onEachFeature:popUp});
 
 	var map = L.map('map').setView([51.505, -0.09], 13);
-	
-	var geoJsonData = {"type":"FeatureCollection","metadata":{"generated":1381110822000,"url":"http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson","title":"USGS All Earthquakes, Past Hour","status":200,"api":"1.0.11","count":6},"features":[{"type":"Feature","properties":{"mag":0.9,"place":"34km ENE of Cantwell, Alaska","time":1381109855000,"updated":1381110374125,"tz":-480,"url":"http://earthquake.usgs.gov/earthquakes/eventpage/ak10818421","detail":"http://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak10818421.geojson","felt":null,"cdi":null,"mmi":null,"alert":null,"status":"AUTOMATIC","tsunami":null,"sig":12,"net":"ak","code":"10818421","ids":",ak10818421,","sources":",ak,","types":",general-link,geoserve,nearby-cities,origin,tectonic-summary,","nst":null,"dmin":null,"rms":0.2,"gap":null,"magType":"Ml","type":"earthquake","title":"M 0.9 - 34km ENE of Cantwell, Alaska"},"geometry":{"type":"Point","coordinates":[-148.303,63.4969,20.2]},"id":"ak10818421"},
-	{"type":"Feature","properties":{"mag":4.6,"place":"82km SE of Pangai, Tonga","time":1381109624970,"updated":1381110757000,"tz":-720,"url":"http://earthquake.usgs.gov/earthquakes/eventpage/usb000k7te","detail":"http://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/usb000k7te.geojson","felt":0,"cdi":1,"mmi":null,"alert":null,"status":"reviewed","tsunami":null,"sig":326,"net":"us","code":"b000k7te","ids":",usb000k7te,","sources":",us,","types":",dyfi,geoserve,nearby-cities,origin,phase-data,tectonic-summary,","nst":null,"dmin":6.754,"rms":1.38,"gap":100,"magType":"mb","type":"earthquake","title":"M 4.6 - 82km SE of Pangai, Tonga"},"geometry":{"type":"Point","coordinates":[-173.8794,-20.3944,34.28]},"id":"usb000k7te"},
-	{"type":"Feature","properties":{"mag":1.8,"place":"75km W of Willow, Alaska","time":1381109316000,"updated":1381109833549,"tz":-480,"url":"http://earthquake.usgs.gov/earthquakes/eventpage/ak10818418","detail":"http://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak10818418.geojson","felt":null,"cdi":null,"mmi":null,"alert":null,"status":"AUTOMATIC","tsunami":null,"sig":50,"net":"ak","code":"10818418","ids":",ak10818418,","sources":",ak,","types":",general-link,geoserve,nearby-cities,origin,tectonic-summary,","nst":null,"dmin":null,"rms":0.43,"gap":null,"magType":"Ml","type":"earthquake","title":"M 1.8 - 75km W of Willow, Alaska"},"geometry":{"type":"Point","coordinates":[-151.4646,61.761,99.8]},"id":"ak10818418"},
-	{"type":"Feature","properties":{"mag":1.1,"place":"20km NE of Coachella, California","time":1381108344100,"updated":1381108509624,"tz":-420,"url":"http://earthquake.usgs.gov/earthquakes/eventpage/ci11374058","detail":"http://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ci11374058.geojson","felt":null,"cdi":null,"mmi":null,"alert":null,"status":"AUTOMATIC","tsunami":null,"sig":19,"net":"ci","code":"11374058","ids":",ci11374058,","sources":",ci,","types":",general-link,geoserve,nearby-cities,origin,scitech-link,","nst":25,"dmin":0.13474729,"rms":0.22,"gap":180,"magType":"Ml","type":"earthquake","title":"M 1.1 - 20km NE of Coachella, California"},"geometry":{"type":"Point","coordinates":[-115.9907,33.7882,3.1]},"id":"ci11374058"},
-	{"type":"Feature","properties":{"mag":2.6,"place":"20km NE of Coachella, California","time":1381107983600,"updated":1381108634878,"tz":-420,"url":"http://earthquake.usgs.gov/earthquakes/eventpage/ci11374042","detail":"http://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ci11374042.geojson","felt":null,"cdi":null,"mmi":null,"alert":null,"status":"AUTOMATIC","tsunami":null,"sig":104,"net":"ci","code":"11374042","ids":",ci11374042,","sources":",ci,","types":",general-link,geoserve,nearby-cities,origin,scitech-link,","nst":79,"dmin":0.13474729,"rms":0.26,"gap":46.8,"magType":"Ml","type":"earthquake","title":"M 2.6 - 20km NE of Coachella, California"},"geometry":{"type":"Point","coordinates":[-115.9873,33.7863,1.5]},"id":"ci11374042"},
-	{"type":"Feature","properties":{"mag":1.5,"place":"19km ESE of Anza, California","time":1381107596900,"updated":1381107773153,"tz":-420,"url":"http://earthquake.usgs.gov/earthquakes/eventpage/ci11374034","detail":"http://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ci11374034.geojson","felt":null,"cdi":null,"mmi":null,"alert":null,"status":"AUTOMATIC","tsunami":null,"sig":35,"net":"ci","code":"11374034","ids":",ci11374034,","sources":",ci,","types":",general-link,geoserve,nearby-cities,origin,scitech-link,","nst":43,"dmin":0.08084838,"rms":0.2,"gap":97.2,"magType":"Ml","type":"earthquake","title":"M 1.5 - 19km ESE of Anza, California"},"geometry":{"type":"Point","coordinates":[-116.4977,33.4635,14.4]},"id":"ci11374034"}],"bbox":[-173.8794,-20.3944,1.5,-115.9873,63.4969,99.8]}
 
-	L.tileLayer('http://{s}.tile.cloudmade.com/6798e89110614f5a9da04c5cd2918bf1/997/256/{z}/{x}/{y}.png', {    
-	    maxZoom: 20
-	}).addTo(map);
-
-	L.geoJson(geoJsonData).addTo(map);
+	layerMap.addTo(map);
+  	geojsonLayer.addTo(map);
 
 });
