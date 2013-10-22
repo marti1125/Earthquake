@@ -1,10 +1,16 @@
-@font-face
-{
+@font-face {
+    font-family: FiraSansOT-Light;
+    src: url(../fonts/FiraSansOT-Light.otf);
+}
+@font-face {
+    font-family: FiraSansOT-Medium;
+    src: url(../fonts/FiraSansOT-Medium.otf);
+}
+@font-face {
     font-family: FiraSansOT-Regular;
     src: url(../fonts/FiraSansOT-Regular.otf);
 }
-@font-face
-{
+@font-face {
     font-family: FiraSansOT-Bold;
     src: url(../fonts/FiraSansOT-Bold.otf);
 }
@@ -82,7 +88,7 @@ h1 { /* Main header */
 h2 { /* Subheader, Dialog title */
     font-size: 1.6rem;
     font-weight: normal;
-    font-family: FiraSansOT-Bold;
+    font-family: FiraSansOT-Medium;
 }
 p {
     font-size: 1.9rem;
@@ -118,7 +124,7 @@ ul, ol, li {
     font-size: 1.9rem;
     font-weight: normal;
     line-height: 2.5rem;
-    font-family: FiraSansOT-Regular;
+    font-family: FiraSansOT-Light;
 }
 div[role="main"] {
     background: #fff;
