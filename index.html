@@ -1,17 +1,71 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>GeoJSON</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
-	<link rel="stylesheet" type="text/css" href="css/leaflet.css">
-	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<title>Earthquakes</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/headers.css" />
+    <link rel="stylesheet" type="text/css" href="css/drawer.css" />
+	<link rel="stylesheet" type="text/css" href="css/leaflet.css" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" />
 	<script type="text/javascript" src="js/zepto.min.js"></script>
-
 	<script type="text/javascript" src="js/leaflet.js"></script>
 	<script type="text/javascript" src="js/leaflet.ajax.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-	<div id="map"></div>
+<section data-type="sidebar">
+    <header>
+        <h1>Options</h1>
+    </header>
+    <nav>
+        <h2>All</h2>
+        <ul>
+            <li><a href="#" id="btn-to-all">All Earthquakes</a></li>
+        </ul>
+        <h2>Past Hour</h2>
+        <ul>
+            <li><a href="#">Earthquakes</a></li>
+            <li><a href="#">M4.5+ Earthquakes</a></li>
+            <li><a href="#">M2.5+ Earthquakes</a></li>
+            <li><a href="#">M1.0+ Earthquakes</a></li>
+        </ul>
+        <h2>Past Day</h2>
+        <ul>
+            <li><a href="#">Earthquakes</a></li>
+            <li><a href="#">M4.5+ Earthquakes</a></li>
+            <li><a href="#">M2.5+ Earthquakes</a></li>
+            <li><a href="#">M1.0+ Earthquakes</a></li>
+        </ul>
+        <h2>Past 7 Days</h2>
+        <ul>
+            <li><a href="#">Earthquakes</a></li>
+            <li><a href="#">M4.5+ Earthquakes</a></li>
+            <li><a href="#">M2.5+ Earthquakes</a></li>
+            <li><a href="#">M1.0+ Earthquakes</a></li>
+        </ul>
+        <h2>Past 30 Days</h2>
+        <ul>
+            <li><a href="#">Earthquakes</a></li>
+            <li><a href="#">M4.5+ Earthquakes</a></li>
+            <li><a href="#">M2.5+ Earthquakes</a></li>
+            <li><a href="#">M1.0+ Earthquakes</a></li>
+        </ul>
+        <h2>More Info</h2>
+        <ul>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+</section>
+<section id="drawer" role="region">
+    <header>
+        <a href="#"><span class="icon icon-menu">hide sidebar</span></a>
+        <a href="#drawer"><span class="icon icon-menu">show sidebar</span></a>
+        <h1>Earthquakes</h1>
+    </header>
+    <div role="main">
+        <div id="map"></div>
+    </div>
+</section>
 </body>
 </html>
