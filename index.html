@@ -3,6 +3,7 @@
 <head>
 	<title>Earthquakes</title>
     <meta charset="utf-8" />
+    <link rel="prefetch" type="application/l10n" href="l10n/locales.ini" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="css/headers.css" />
     <link rel="stylesheet" type="text/css" href="css/drawer.css" />
@@ -11,49 +12,50 @@
 	<script type="text/javascript" src="js/zepto.min.js"></script>
 	<script type="text/javascript" src="js/leaflet.js"></script>
 	<script type="text/javascript" src="js/leaflet.ajax.min.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/l10n.js"></script>
+ 	<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
 <section data-type="sidebar">
     <header>
-        <h1>Options</h1>
+        <h1 data-l10n-id="options">Options</h1>
     </header>
     <nav>
-        <h2>All</h2>
+        <h2 data-l10n-id="all">All</h2>
         <ul>
-            <li><a href="#" id="btn-to-all">All Earthquakes</a></li>
+            <li><a href="#" id="btn-to-all" data-l10n-id="allEarthquakes">All Earthquakes</a></li>
         </ul>
-        <h2>Past Hour</h2>
+        <h2 data-l10n-id="pastHour">Past Hour</h2>
         <ul>
-            <li><a href="#">Earthquakes</a></li>
-            <li><a href="#">M4.5+ Earthquakes</a></li>
-            <li><a href="#">M2.5+ Earthquakes</a></li>
-            <li><a href="#">M1.0+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="earthquakes">Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m45Erthquakes">M4.5+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m25Earthquakes">M2.5+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m10Earthquakes">M1.0+ Earthquakes</a></li>
         </ul>
-        <h2>Past Day</h2>
+        <h2 data-l10n-id="pastDay">Past Day</h2>
         <ul>
-            <li><a href="#">Earthquakes</a></li>
-            <li><a href="#">M4.5+ Earthquakes</a></li>
-            <li><a href="#">M2.5+ Earthquakes</a></li>
-            <li><a href="#">M1.0+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="earthquakes">Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m45Erthquakes">M4.5+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m25Earthquakes">M2.5+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m10Earthquakes">M1.0+ Earthquakes</a></li>
         </ul>
-        <h2>Past 7 Days</h2>
+        <h2 data-l10n-id="past7Days">Past 7 Days</h2>
         <ul>
-            <li><a href="#">Earthquakes</a></li>
-            <li><a href="#">M4.5+ Earthquakes</a></li>
-            <li><a href="#">M2.5+ Earthquakes</a></li>
-            <li><a href="#">M1.0+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="earthquakes">Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m45Erthquakes">M4.5+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m25Earthquakes">M2.5+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m10Earthquakes">M1.0+ Earthquakes</a></li>
         </ul>
-        <h2>Past 30 Days</h2>
+        <h2 data-l10n-id="past30Days">Past 30 Days</h2>
         <ul>
-            <li><a href="#">Earthquakes</a></li>
-            <li><a href="#">M4.5+ Earthquakes</a></li>
-            <li><a href="#">M2.5+ Earthquakes</a></li>
-            <li><a href="#">M1.0+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="earthquakes">Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m45Erthquakes">M4.5+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m25Earthquakes">M2.5+ Earthquakes</a></li>
+            <li><a href="#" data-l10n-id="m10Earthquakes">M1.0+ Earthquakes</a></li>
         </ul>
-        <h2>More Info</h2>
+        <h2 data-l10n-id="moreInfo">More Info</h2>
         <ul>
-            <li><a href="#">About</a></li>
+            <li><a href="#" data-l10n-id="aboutApp">About App</a></li>
         </ul>
     </nav>
 </section>
@@ -61,7 +63,7 @@
     <header>
         <a href="#"><span class="icon icon-menu">hide sidebar</span></a>
         <a href="#drawer"><span class="icon icon-menu">show sidebar</span></a>
-        <h1>Earthquakes</h1>
+        <h1 data-l10n-id="earthquakes">Earthquakes</h1>
     </header>
     <div role="main">
         <div id="map"></div>
