@@ -1,7 +1,7 @@
-$(document).on('ready',function(){
+Zepto(function($){
 	
-	function popUp(feature, layer) {
-		layer.bindPopup(feature.properties.mag);
+	function popUp(features, layer) {
+		layer.bindPopup(features.properties.mag);
 	}	
 
 	var geojsonLayer = new L.GeoJSON.AJAX("http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson",{onEachFeature:popUp});
