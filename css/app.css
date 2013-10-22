@@ -1,3 +1,13 @@
+@font-face
+{
+    font-family: FiraSansOT-Regular;
+    src: url(../fonts/FiraSansOT-Regular.otf);
+}
+@font-face
+{
+    font-family: FiraSansOT-Bold;
+    src: url(../fonts/FiraSansOT-Bold.otf);
+}
 html {
     height: 100%;
     font-size: 62.5%; /* Setting base font to 10px and define all your units in rem. 1rem = 10px */
@@ -66,11 +76,13 @@ section[role="region"] > .content [data-type="list"] li > a > aside:not(.pack-en
 h1 { /* Main header */
     font-size: 2.5rem;
     font-weight: normal;
+    font-family: FiraSansOT-Bold;
 }
 
 h2 { /* Subheader, Dialog title */
     font-size: 1.6rem;
     font-weight: normal;
+    font-family: FiraSansOT-Bold;
 }
 p {
     font-size: 1.9rem;
@@ -106,6 +118,7 @@ ul, ol, li {
     font-size: 1.9rem;
     font-weight: normal;
     line-height: 2.5rem;
+    font-family: FiraSansOT-Regular;
 }
 div[role="main"] {
     background: #fff;
