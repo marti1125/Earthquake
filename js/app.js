@@ -27,12 +27,24 @@ Zepto(function($){
     geojsonLayer.addTo(map);
     layerMap.addTo(map);
 
-    $("#btn-allEart-PastHour").on('click', function(){
-        geoData("all_hour");
+    $("#btn-sigEart-PastHour").on('click', function(){
+        geoData("significant_hour");
     });
 
     $("#btn-M45-PastHour").on('click', function(){
-        geoData("4.5_week");
+        geoData("4.5_hour");
+    });
+
+    $("#btn-M25-PastHour").on('click', function(){
+        geoData("2.5_hour");
+    });
+
+    $("#btn-M10-PastHour").on('click', function(){
+        geoData("1.0_hour");
+    });
+
+    $("#btn-allEart-PastHour").on('click', function(){
+        geoData("all_hour");
     });
 
 });
