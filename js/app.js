@@ -1,6 +1,6 @@
 Zepto(function($){
 
-    var map = L.map('map').setView([51.505, -0.09], 13);
+    var map = L.map('map').setView([23.21980912722173,-31.9921875], 1);
 
     function popUp(f,l){
         var out = [];
