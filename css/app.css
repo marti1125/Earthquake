@@ -132,5 +132,17 @@ div[role="main"] {
     overflow: hidden;
 }
 #map {
-	height: 400px; 
+	height: 430px; 
+}
+/*Details of GeoJson*/
+#detail, #url, #felt, #cdi, #mmi, #alert, #status, #sig, #net, #code, #ids, #sources,
+#types, #nst, #dmin, #rms, #gap, #magType {
+    display: none;
+}
+.leaflet-popup-content {
+    height: 40px;
+}
+
+.leaflet-popup-content div {
+    height: 0px;
 }
