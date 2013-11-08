@@ -55,7 +55,7 @@
         </ul>
         <h2 data-l10n-id="moreInfo">More Info</h2>
         <ul>
-            <li><a href="#" data-l10n-id="aboutApp">About App</a></li>
+            <li><a href="#" id="btn-aboutApp" data-l10n-id="aboutApp">About App</a></li>
         </ul>
     </nav>
 </section>
@@ -66,7 +66,19 @@
         <h1 data-l10n-id="earthquakes">Earthquakes</h1>
     </header>
     <div role="main">
+        <div id="message"></div>
         <div id="map"></div>
+        <div id="aboutApp">
+            <p><strong><span data-l10n-id="aboutAppImport">Importante</span></strong></p>
+            <p><span data-l10n-id="aboutAppExServ">Esta aplicación usa un servicio externo:</span></p>
+            <p>
+               <a class="urlBoton" href="http://earthquake.usgs.gov/" target="_blank">&#10132; http://earthquake.usgs.gov/</a>
+            </p>
+            <p><strong><span data-l10n-id="aboutAppAuthor">Autor</span></strong></p>
+            <p><a class="urlBoton" href="https://reps.mozilla.org/u/Willy/" target="_blank">&#10132; Willy Aguirre</a>&nbsp;<a class="urlBoton" href="http://mozilla.pe/" target="_blank">&#10132; Mozilla Perú</a></p>
+            <p><strong><span data-l10n-id="aboutAppCodApp">Código de la aplicación</span></strong></p>
+            <p><span data-l10n-id="aboutAppProjIssue">Proyecto y peticiones</span> <a class="urlBoton" href="https://github.com/marti1125/Earthquake" target="_blank">&#10132; GitHub</a></p>
+        </div>
     </div>
 </section>
 </body>

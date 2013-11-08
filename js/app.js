@@ -48,35 +48,53 @@ Zepto(function($){
         layerMap.addTo(map);
     }
 
-	init();
+    $('#aboutApp').hide();
 
+    if(navigator.onLine){
+        $('#message').html('');
+        init();
+    } else {
+        $('#map').addClass('hideMap');
+        $('#message').append('<h1 data-l10n-id="requiredInternet">Internet connection required<h1>');
+    }
+
+    //About App
+    $("#btn-aboutApp").on('click', function(){
+        $('#map').addClass('hideMap');
+        $('#aboutApp').show();
+    });
 
     //Past Hour
     $("#btn-sigEart-PastHour").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
-        map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
+        map = L.map('map').setView([23.21980912722173,-31.9921875], 1);
         update("significant_hour");
     });
 
     $("#btn-M45-PastHour").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("4.5_hour");
     });
 
     $("#btn-M25-PastHour").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("4.5_hour");
     });
 
     $("#btn-M10-PastHour").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("1.0_hour");
     });
 
     $("#btn-allEart-PastHour").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("all_hour");
@@ -84,30 +102,35 @@ Zepto(function($){
 
     //Past Day
     $("#btn-sigEart-PastDay").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("significant_day");
     });
 
     $("#btn-M45-PastDay").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("4.5_day");
     });
 
     $("#btn-M25-PastDay").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("4.5_day");
     });
 
     $("#btn-M10-PastDay").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("1.0_day");
     });
 
     $("#btn-allEart-PastDay").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("all_day");
@@ -115,30 +138,35 @@ Zepto(function($){
 
     //Past 7 Days
     $("#btn-sigEart-Past7Days").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("significant_week");
     });
 
     $("#btn-M45-Past7Days").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("4.5_week");
     });
 
     $("#btn-M25-Past7Days").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("4.5_week");
     });
 
     $("#btn-M10-Past7Days").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("1.0_week");
     });
 
     $("#btn-allEart-Past7Days").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("all_week");
@@ -146,30 +174,35 @@ Zepto(function($){
 
     //Past 30 Days
     $("#btn-sigEart-Past30Days").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("significant_month");
     });
 
     $("#btn-M45-Past30Days").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("4.5_month");
     });
 
     $("#btn-M25-Past30Days").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("4.5_month");
     });
 
     $("#btn-M10-Past30Days").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("1.0_month");
     });
 
     $("#btn-allEart-Past30Days").on('click', function(){
+        $('#map').removeClass('hideMap');
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1); 
         update("all_month");
