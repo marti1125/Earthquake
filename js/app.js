@@ -1,4 +1,6 @@
 Zepto(function($){
+ 
+    $('#aboutApp').hide();  
 
     String.prototype.capitalize = function() {
         return this.charAt(0).toUpperCase() + this.slice(1);
@@ -13,14 +15,14 @@ Zepto(function($){
                 if(key == "mag" || key =="title"){
                     out.push("<div id="+key+">"+key.capitalize()+": "+f.properties[key]+"</div>");
                 }
-                                
+
             }
             l.bindPopup(out.join("<br />"));
-        }        
+        }
     }
 
     function geoData(data){
-        var geojsonLayer = new L.GeoJSON.AJAX("http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/"+data+".geojson",{onEachFeature:popUp});        
+        var geojsonLayer = new L.GeoJSON.AJAX("http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/"+data+".geojson",{onEachFeature:popUp});
         return geojsonLayer;
     }
 	
@@ -37,10 +39,10 @@ Zepto(function($){
 	}
 
     function update(data){
-
         $('#map').removeClass('hideMap');
+       
         map.remove();
-        map = L.map('map').setView([23.21980912722173,-31.9921875], 1);
+        map = L.map('map').setView([23.21980912722173,-31.9921875], 1);        
 
         var geojsonLayer = geoData(data);
 
@@ -53,7 +55,11 @@ Zepto(function($){
         layerMap.addTo(map);
     }
 
-    $('#aboutApp').hide();
+    function btnEvents(btnName){
+        $('#btn-' + btnName).click(function (){
+            update($(this).data('geojson'));                           
+        });
+    }
 
     if(navigator.onLine){
         $('#message').html('');
@@ -69,88 +75,12 @@ Zepto(function($){
         $('#aboutApp').show();
     });
 
-    //Past Hour
-    $("#btn-sigEart-PastHour").on('click', function(){
-        update("significant_hour");
-    });
-
-    $("#btn-M45-PastHour").on('click', function(){
-        update("4.5_hour");
-    });
-
-    $("#btn-M25-PastHour").on('click', function(){
-        update("4.5_hour");
-    });
-
-    $("#btn-M10-PastHour").on('click', function(){
-        update("1.0_hour");
-    });
-
-    $("#btn-allEart-PastHour").on('click', function(){
-        update("all_hour");
-    });
-
-    //Past Day
-    $("#btn-sigEart-PastDay").on('click', function(){
-        update("significant_day");
-    });
-
-    $("#btn-M45-PastDay").on('click', function(){
-        update("4.5_day");
-    });
-
-    $("#btn-M25-PastDay").on('click', function(){
-        update("4.5_day");
-    });
-
-    $("#btn-M10-PastDay").on('click', function(){
-        update("1.0_day");
-    });
-
-    $("#btn-allEart-PastDay").on('click', function(){
-        update("all_day");
-    });
-
-    //Past 7 Days
-    $("#btn-sigEart-Past7Days").on('click', function(){
-        update("significant_week");
-    });
-
-    $("#btn-M45-Past7Days").on('click', function(){
-        update("4.5_week");
-    });
-
-    $("#btn-M25-Past7Days").on('click', function(){
-        update("4.5_week");
-    });
-
-    $("#btn-M10-Past7Days").on('click', function(){
-        update("1.0_week");
-    });
-
-    $("#btn-allEart-Past7Days").on('click', function(){
-        update("all_week");
-    });
-
-    //Past 30 Days
-    $("#btn-sigEart-Past30Days").on('click', function(){
-        update("significant_month");
-    });
-
-    $("#btn-M45-Past30Days").on('click', function(){
-        update("4.5_month");
-    });
-
-    $("#btn-M25-Past30Days").on('click', function(){
-        update("4.5_month");
-    });
-
-    $("#btn-M10-Past30Days").on('click', function(){
-        update("1.0_month");
-    });
-
-    $("#btn-allEart-Past30Days").on('click', function(){
-        update("all_month");
-    });
+    var buttons = ['sigEart-PastHour', 'M45-PastHour', 'M25-PastHour', 'M10-PastHour','allEart-PastHour',
+    'sigEart-PastDay','M45-PastDay','M25-PastDay','M10-PastDay','allEart-PastDay',
+    'sigEart-Past7Days','M45-Past7Days','M25-Past7Days','M10-Past7Days','allEart-Past7Days',
+    'sigEart-Past30Days','M45-Past30Days','M25-Past30Days','M10-Past30Days','allEart-Past30Days'];
+    $.map(buttons, function(button){
+        btnEvents(button);
+    });    
 
 });
