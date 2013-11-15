@@ -40,6 +40,7 @@ Zepto(function($){
 
     function update(data){
         $('#map').removeClass('hideMap');
+        $('#aboutApp').hide();  
        
         map.remove();
         map = L.map('map').setView([23.21980912722173,-31.9921875], 1);        
