@@ -2,11 +2,11 @@
 ==========
 
 ###Maps
-* [Cloudmade](http://cloudmade.com/)
+* [Mapbox](https://www.mapbox.com)
 
 ###What library it use?
-* [LeafletJS](http://leafletjs.com/)
-* [LeafletJS-AJAX](https://github.com/calvinmetcalf/leaflet-ajax)
+* [zeptojs](http://zeptojs.com/)
+* [webL10n](https://github.com/fabi1cazenave/webL10n)
 
 ###Others
 * [CORS Proxy](http://www.corsproxy.com/)

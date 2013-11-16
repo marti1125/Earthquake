@@ -7,15 +7,20 @@
 		"128": "/icons/128.png",
 		"60": "/icons/60.png"
 	},
+	"orientation": ["portrait"],
 	"developer": {
 		"name": "Willy Aguirre",
 		"url": "http://willyaguirre.me/"
 	},
 	"locales": {
-		"en": {
-			"name": "Earthquake",
+		"en-US": {
+			"name": "Earthquakes",
 			"description": "List of Earthquakes"
-		}
+		},
+		"es": {
+            "name": "Sismos",
+            "description": "Lista de Sismos"
+        }
 	},
-	"default_locale": "en"
+	"default_locale": "en-US"
 }
