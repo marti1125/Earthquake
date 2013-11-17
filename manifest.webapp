@@ -1,11 +1,15 @@
 {
 	"name": "Earthquake",
 	"description": "List of Earthquakes",
-	"version": "1.0",
+	"version": "1.1",
 	"launch_path": "/index.html",
 	"icons": {
+		"256": "/icons/256.png",
+		"120": "/icons/120.png",
 		"128": "/icons/128.png",
-		"60": "/icons/60.png"
+		"90": "/icons/90.png",
+		"60": "/icons/60.png",
+		"32": "/icons/32.png"
 	},
 	"orientation": ["portrait"],
 	"developer": {
