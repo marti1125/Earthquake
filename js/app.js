@@ -1,11 +1,29 @@
 Zepto(function($){
+
+    var sched = later.parse.recur().every(4).minute(),
+        t = later.setInterval(showEarthqueaks, sched);
+
+    function showEarthqueaks(){
+        $('#listEarthqueaks').html('');
+        $.get('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson',function(data){
+            $.each(data.features, function( index, value ) {
+                $.each(value, function( index, result ) {
+                    if(typeof result.title != 'undefined'){
+                        $('#listEarthqueaks').append('<li>'+result.title+'</li>'); 
+                    }   
+                });
+            });
+        });           
+    }
+
+    showEarthqueaks();    
  
     $('#aboutApp').hide();
 
     var map = L.mapbox.map('map', 'osgux.g96240ai');
 
     var markerLayer = L.mapbox.markerLayer()
-        .loadURL('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_hour.geojson')
+        .loadURL('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson')
         .addTo(map);
 
     function updateMarker(marker){
@@ -46,6 +64,6 @@ Zepto(function($){
     } else {
         $('#map').addClass('hideMap');
         $('#message').append('<h1 data-l10n-id="requiredInternet">Internet connection required<h1>');
-    }
+    }    
 
 });

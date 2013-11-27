@@ -1,7 +1,7 @@
 {
 	"name": "Earthquake",
 	"description": "List of Earthquakes",
-	"version": "1.1",
+	"version": "1.2",
 	"launch_path": "/index.html",
 	"icons": {
 		"256": "/icons/256.png",
@@ -26,5 +26,5 @@
             "description": "Lista de Sismos"
         }
 	},
-	"default_locale": "en-US"
+	"default_locale": "en-US"	
 }

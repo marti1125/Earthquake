@@ -139,23 +139,41 @@ div[role="main"] {
 #map {
 	height: 430px; 
 }
-
 .hideMap {
     display: none;
 }
-
 #message h1{
     text-align: center;
     font-size: 2rem;
 }
-
 #aboutApp {
     padding: 1rem;
 }
-
 .urlBoton {
     background-color: #227BC9;
     border-collapse: separate;
     border-radius: 5px;
     padding: 4px;
+}
+#menu {
+    z-index: 1; 
+    position:absolute;
+}
+#drawer {
+    z-index: 1;
+    position:absolute;
+}
+#listOfEarthqueaks {
+    z-index: 2;
+    position:absolute;
+    background: white;
+    padding: 
+}
+#contentEarthqueaks {
+    padding: 1rem;
+}
+#listEarthqueaks li {
+    font-size: 1.5rem;
+    border-bottom: solid peru;
+    height: auto;
 }
