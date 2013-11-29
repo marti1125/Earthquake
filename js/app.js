@@ -17,7 +17,7 @@ Zepto(function($){
     }
 
     showEarthqueaks();    
- 
+    $('#contentEarthqueaks').hide();
     $('#aboutApp').hide();
 
     var map = L.mapbox.map('map', 'osgux.g96240ai');

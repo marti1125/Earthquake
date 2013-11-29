@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/leaflet.css" />
     <link rel="stylesheet" type="text/css" href='http://api.tiles.mapbox.com/mapbox.js/v1.4.2/mapbox.css' />
 	<link rel="stylesheet" type="text/css" href="css/app.css" />
+    <link rel="stylesheet" type="text/css" href="css/symbols.css" />
 
 	<script type="text/javascript" src="js/zepto.min.js"></script>
     <script type="text/javascript" src="js/later.min.js"></script>
@@ -24,21 +25,25 @@
         <h1 data-l10n-id="options">Options</h1>
     </header>
     <nav>
+        <h2 data-l10n-id="important">Important</h2>
+        <ul>
+            <li><a href="#" id="btn-last-earthqueaks" data-l10n-id="lastEarthqueaks"><i class="icon-earthquake"></i>Last Earthquakes</a></li>
+        </ul>
         <h2 data-l10n-id="pastHour">Past Hour</h2>
         <ul>
-            <li><a href="#" id="btn-sigEart-PastHour" data-geojson="significant_hour" data-l10n-id="sigEarthquakes">Significant Earthquakes</a></li>
-            <li><a href="#" id="btn-M45-PastHour" data-geojson="4.5_hour" data-l10n-id="m45Erthquakes">M4.5+ Earthquakes</a></li>
-            <li><a href="#" id="btn-M25-PastHour" data-geojson="2.5_hour" data-l10n-id="m25Earthquakes">M2.5+ Earthquakes</a></li>
-            <li><a href="#" id="btn-M10-PastHour" data-geojson="1.0_hour" data-l10n-id="m10Earthquakes">M1.0+ Earthquakes</a></li>
-            <li><a href="#" id="btn-allEart-PastHour" data-geojson="all_hour" data-l10n-id="allEarthquakes">All Earthquakes</a></li>
+            <li><a href="#" id="btn-sigEart-PastHour" data-geojson="significant_hour" data-l10n-id="sigEarthquakes"><i class="icon-earthquake"></i>Significant Earthquakes</a></li>
+            <li><a href="#" id="btn-M45-PastHour" data-geojson="4.5_hour" data-l10n-id="m45Erthquakes"><i class="icon-earthquake"></i>M4.5+ Earthquakes</a></li>
+            <li><a href="#" id="btn-M25-PastHour" data-geojson="2.5_hour" data-l10n-id="m25Earthquakes"><i class="icon-earthquake"></i>M2.5+ Earthquakes</a></li>
+            <li><a href="#" id="btn-M10-PastHour" data-geojson="1.0_hour" data-l10n-id="m10Earthquakes"><i class="icon-earthquake"></i>M1.0+ Earthquakes</a></li>
+            <li><a href="#" id="btn-allEart-PastHour" data-geojson="all_hour" data-l10n-id="allEarthquakes"><i class="icon-earthquake"></i>All Earthquakes</a></li>
         </ul>
         <h2 data-l10n-id="pastDay">Past Day</h2>
         <ul>
-            <li><a href="#" id="btn-sigEart-PastDay" data-geojson="significant_day" data-l10n-id="sigEarthquakes">Significant Earthquakes</a></li>
-            <li><a href="#" id="btn-M45-PastDay" data-geojson="4.5_day" data-l10n-id="m45Erthquakes">M4.5+ Earthquakes</a></li>
-            <li><a href="#" id="btn-M25-PastDay" data-geojson="2.5_day" data-l10n-id="m25Earthquakes">M2.5+ Earthquakes</a></li>
-            <li><a href="#" id="btn-M10-PastDay" data-geojson="1.0_day" data-l10n-id="m10Earthquakes">M1.0+ Earthquakes</a></li>
-            <li><a href="#" id="btn-allEart-PastDay" data-geojson="all_day" data-l10n-id="allEarthquakes">All Earthquakes</a></li>
+            <li><a href="#" id="btn-sigEart-PastDay" data-geojson="significant_day" data-l10n-id="sigEarthquakes"><i class="icon-earthquake"></i>Significant Earthquakes</a></li>
+            <li><a href="#" id="btn-M45-PastDay" data-geojson="4.5_day" data-l10n-id="m45Erthquakes"><i class="icon-earthquake"></i>M4.5+ Earthquakes</a></li>
+            <li><a href="#" id="btn-M25-PastDay" data-geojson="2.5_day" data-l10n-id="m25Earthquakes"><i class="icon-earthquake"></i>M2.5+ Earthquakes</a></li>
+            <li><a href="#" id="btn-M10-PastDay" data-geojson="1.0_day" data-l10n-id="m10Earthquakes"><i class="icon-earthquake"></i>M1.0+ Earthquakes</a></li>
+            <li><a href="#" id="btn-allEart-PastDay" data-geojson="all_day" data-l10n-id="allEarthquakes"><i class="icon-earthquake"></i>All Earthquakes</a></li>
         </ul>
         <!--h2 data-l10n-id="past7Days">Past 7 Days</h2>
         <ul>
@@ -69,6 +74,10 @@
         <h1 data-l10n-id="earthquakes">Earthquakes</h1>
     </header>
     <div role="main">
+        <div id="contentEarthqueaks">
+            <ul id="listEarthqueaks">
+            <ul>
+        </div>
         <div id="message"></div>
         <div id="map"></div>
         <div id="aboutApp">
@@ -83,18 +92,6 @@
             <p><span data-l10n-id="aboutAppProjIssue">Proyecto y peticiones</span> <a class="urlBoton" href="https://github.com/marti1125/Earthquake" target="_blank">&#10132; GitHub</a></p>
         </div>
     </div>
-</section>
-<section id="listOfEarthqueaks" role="region">
-    <header>
-        <menu type="toolbar">
-            <button id="settings-btn"><span class="icon icon-close">close</span></button>
-        </menu>
-        <h1 data-l10n-id="earthquakes">Earthquakes</h1>
-    </header>
-    <div role="main" id="contentEarthqueaks">
-        <ul id="listEarthqueaks">
-        <ul>
-    </div>    
 </section>
 </body>
 </html>

@@ -1,0 +1,8 @@
+.icon-earthquake {
+    display: inline-block;    
+    width: 2.2rem;
+    height: 1.7rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAARCAYAAADZsVyDAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFtSURBVDiNrZRNK4RRFMd/j5cQWVigxGDnpagZ1mbBimwoYqmUWPgC1rK08AksfAYxdkoxkwXJYuYhpSxsUN7qb/Gcmbkm88xM49S/c++55/7uvefeLpIooXZJZ5LiZeTmVENpGwPGgaUycnNWDrjf/PB/g/vMDwFetWAXkAW3AD3VgCeBO4IdumCooByFYA/YAbqBaQd8WS14Fhi1dgxoA1qBI+Cd4BSNwDGwFkp23p4nKSXpVdKtpIykqAJblZQ0rVjsUVJt2Dv2Tfe22z0gAfQSvGGANHAFDACbFusEJqy963B8wK8DbpwDHALbwJz1581nDLwMDAIHwAKwCDQBGzb+8FcpXMXsuN+mekkzFvuU1CXpVNKzpGtJL5I6XEYxcIMBJMm3WMQW2bf+uvK2VcgI+0hSNinhxKK2aPZz+rJLbK7kE7pw6uvGPqz9BEwBceCtcHIYOGk+HZJzwu/Lz1tIKSKSziWNhOQU1Q9eVdFaGed+ZQAAAABJRU5ErkJggg==);   
+}

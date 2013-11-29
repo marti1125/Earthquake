@@ -155,25 +155,13 @@ div[role="main"] {
     border-radius: 5px;
     padding: 4px;
 }
-#menu {
-    z-index: 1; 
-    position:absolute;
-}
-#drawer {
-    z-index: 1;
-    position:absolute;
-}
-#listOfEarthqueaks {
-    z-index: 2;
-    position:absolute;
-    background: white;
-    padding: 
-}
 #contentEarthqueaks {
     padding: 1rem;
+    overflow: scroll;
+    height: 80%;    
 }
 #listEarthqueaks li {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     border-bottom: solid peru;
     height: auto;
 }
