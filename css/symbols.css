@@ -1,8 +1,38 @@
-.icon-earthquake {
-    display: inline-block;    
-    width: 2.2rem;
-    height: 1.7rem;
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAARCAYAAADZsVyDAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFtSURBVDiNrZRNK4RRFMd/j5cQWVigxGDnpagZ1mbBimwoYqmUWPgC1rK08AksfAYxdkoxkwXJYuYhpSxsUN7qb/Gcmbkm88xM49S/c++55/7uvefeLpIooXZJZ5LiZeTmVENpGwPGgaUycnNWDrjf/PB/g/vMDwFetWAXkAW3AD3VgCeBO4IdumCooByFYA/YAbqBaQd8WS14Fhi1dgxoA1qBI+Cd4BSNwDGwFkp23p4nKSXpVdKtpIykqAJblZQ0rVjsUVJt2Dv2Tfe22z0gAfQSvGGANHAFDACbFusEJqy963B8wK8DbpwDHALbwJz1581nDLwMDAIHwAKwCDQBGzb+8FcpXMXsuN+mekkzFvuU1CXpVNKzpGtJL5I6XEYxcIMBJMm3WMQW2bf+uvK2VcgI+0hSNinhxKK2aPZz+rJLbK7kE7pw6uvGPqz9BEwBceCtcHIYOGk+HZJzwu/Lz1tIKSKSziWNhOQU1Q9eVdFaGed+ZQAAAABJRU5ErkJggg==);   
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+/* Invert Color */
+/* line 2, ../sass/filter.scss */
+.i {
+  filter: url(invert.svg#matrix-invert);
+}
+
+/* line 1, ../sass/icon.scss */
+.sy-earthquake {
+  display: inline-block;
+  width: 2.2rem;
+  height: 1.7rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAARCAYAAADZsVyDAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH3QsdFDg6fWt15wAAAWpJREFUOMut1D1rVUEQxvHfRCWKksLCFKJBSxNIIC+9SKwUG4WIloIi5itYS8pU9lr4GSTGTgiYBAslWJgrCoJFGhVfElibubDexBOPycLD7M45+z+7zxlGKUWTcAJLOL/bu7X67D4mMYUbWox/AZ/NOLLf4DMZhyMi9gTuAXTBx3D6v8ERMY33ETHcA25lR98OJ53DKVyqwK/2BMYVjOV8IiKOYwAL+JE+H46IZxFxt5Fc1WtgFV/xFusYR8FtrKRuZe4TDjTUv07qQ26Yw8Oc38k4jUf4jteZK7iQkPmK00HnINaqCzzFA1zN9bWM6wm8iXN4ghlcj4gjmM3nH7dZ0XONiTzRVuoQLmfuF07iBTbwBl8w+AfjL+D+BBR0MjeUH3mc63uVJfe3MRrMX81Ni1VuHP1Vc9rMn3i0TRNarvzt2rZcSvmZ88+4mF3vW5tesZLxXUOpPi+lrDXW8Q5WDOElRtv04a5+AzC/SgJcOvW7AAAAAElFTkSuQmCC);
+}
+
+.sy-external-link {
+  display: inline-block;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEGSURBVDiN3dO7LoVREIbhZxzitNEJQVDo6XXuQu0uiAsQiYKIUyRUroHeHShVEo0oJII4jWKvP0Gwf60vmWLNmnkza2aWzFTHsIJHPOEZr3jDeZQAETGCCT+rDYslMbGAXjx1RMQo1jGP6x8AD5k5i7OICOwVwB26YA1b6KnxpAqQ2Cn2AjcYqwnYLYD9ct4uvZHorgHYLrEHqHpZ+WpBNkvcIdo++GdKdb9D0FkaePQFcIy5zNTxy0hBZj5HxFBm3n+5mkSD5uxb6hvAJ9WCtNI/hFxh+i9JEdGOcVxUvmWcYhaDGEC/5vga6NP8bD3oxjBWcfJhZzSwhEvNxWtlt9jAVAV5B4C38JkB4gT7AAAAAElFTkSuQmCC);
+}
+
+.sy-info {
+  display: inline-block;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEkSURBVDiNrdQxSkNBEAbgbx8J5ALeIAimU6Oewd72lSFCOslpUipiYR3IBaxC2hRew8YQcC0ykX2PIARdWJb5/3/mzczOvpRzVq6UUg81rnCJU7xjhSWecs6fDaec88/GEGvkYn+17DWGDb8iwATbEL5FNgN046wDz6GbNIJEBltsMEUVeAc36IRdBb8J/XDfjl5RwrRV3nPgjy18WpTWg1FRQtUSvwb30sKrorQRzMKoW8ITXOMeZyUXfB1+M3F1GYOW6DyuNmNxIMgguBV8xDV2DwgXvwTpht9HFV9L6Dtu9cPvvdqng4sjg+z1q8pulGGcUqpawhRnAw/dOMwlzTl5KGq+xdyuL3PcFdyDck5+m9gDzTw8sf/2dv76itN//E++AcstPQo2TiSMAAAAAElFTkSuQmCC);
 }

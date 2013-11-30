@@ -95,7 +95,7 @@ h2 { /* Subheader, Dialog title */
     font-family: FiraSansOT-Medium;
 }
 p {
-    font-size: 1.9rem;
+    font-size: 1.6rem;
     font-weight: normal;
     line-height: 2.5rem;
     font-family: FiraSansOT-Regular;
@@ -122,6 +122,10 @@ p.micro { /* App icon label */
     font-size: 1.3rem;
     line-height: 1.8rem;
 }
+progress {
+    margin-top: 20%;
+    margin-left: 45%;
+}
 ul, ol, li {
     list-style: none;
     margin: 0;
@@ -146,8 +150,14 @@ div[role="main"] {
     text-align: center;
     font-size: 2rem;
 }
+#messageLastEarthqueaks h1{
+    text-align: center;
+    font-size: 2rem;
+}
 #aboutApp {
     padding: 1rem;
+    overflow: scroll;
+    height: 95%; 
 }
 .urlBoton {
     background-color: #227BC9;
@@ -158,10 +168,10 @@ div[role="main"] {
 #contentEarthqueaks {
     padding: 1rem;
     overflow: scroll;
-    height: 80%;    
+    height: 91%;    
 }
 #listEarthqueaks li {
     font-size: 1.3rem;
-    border-bottom: solid peru;
+    border-bottom: solid #BE4D2C;
     height: auto;
 }

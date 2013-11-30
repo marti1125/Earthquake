@@ -1,19 +1,28 @@
 Zepto(function($){
 
+    if(!navigator.onLine){
+        $('#map').addClass('hideMap'); 
+        $('#message').append('<h1 data-l10n-id="requiredInternet">Internet connection required<h1>');
+        $('#messageLastEarthqueaks').append('<h1 data-l10n-id="requiredInternet">Internet connection required<h1>');
+    }
+
     var sched = later.parse.recur().every(4).minute(),
         t = later.setInterval(showEarthqueaks, sched);
 
-    function showEarthqueaks(){
+    function showEarthqueaks(){       
         $('#listEarthqueaks').html('');
-        $.get('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson',function(data){
-            $.each(data.features, function( index, value ) {
-                $.each(value, function( index, result ) {
-                    if(typeof result.title != 'undefined'){
-                        $('#listEarthqueaks').append('<li>'+result.title+'</li>'); 
-                    }   
+        if(navigator.onLine){           
+            $.get('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson',function(data){
+                $.each(data.features, function( index, value ) {
+                    $.each(value, function( index, result ) {
+                        if(typeof result.title != 'undefined'){
+                            $('#listEarthqueaks').append('<li>'+result.title+'</li>'); 
+                        }   
+                    });
                 });
-            });
-        });           
+                $('.preload').hide();
+            }); 
+        }                  
     }
 
     showEarthqueaks();    
@@ -29,6 +38,7 @@ Zepto(function($){
     function updateMarker(marker){
         $('#map').removeClass('hideMap');
         $('#aboutApp').hide();
+        $('#contentEarthqueaks').hide();
         map.removeLayer(markerLayer);
         markerLayer = L.mapbox.markerLayer()
             .loadURL('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/'+marker+'.geojson')
@@ -49,8 +59,21 @@ Zepto(function($){
     $("#btn-aboutApp").on('click', function(){
         $('#message').hide();
         $('#map').addClass('hideMap');
+        $('#contentEarthqueaks').hide();
         $('#aboutApp').show();
     });
+
+    $("#btn-last-earthqueaks").on('click', function(){        
+        $('#map').addClass('hideMap');
+        $('#aboutApp').hide();
+        $('#contentEarthqueaks').show();
+        if(navigator.onLine){
+            $('#messageLastEarthqueaks').hide();
+        } else {
+            $('.preload').hide();
+            $('#messageLastEarthqueaks').show();
+        }
+    });    
 
     var buttons = ['sigEart-PastHour', 'M45-PastHour', 'M25-PastHour', 'M10-PastHour','allEart-PastHour',
         'sigEart-PastDay','M45-PastDay','M25-PastDay','M10-PastDay','allEart-PastDay',
@@ -58,12 +81,6 @@ Zepto(function($){
         'sigEart-Past30Days','M45-Past30Days','M25-Past30Days','M10-Past30Days','allEart-Past30Days'];
     $.map(buttons, function(button){
          btnEvents(button);
-    });
-
-    if(navigator.onLine){
-    } else {
-        $('#map').addClass('hideMap');
-        $('#message').append('<h1 data-l10n-id="requiredInternet">Internet connection required<h1>');
-    }    
+    });     
 
 });
