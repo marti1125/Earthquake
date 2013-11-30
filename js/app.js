@@ -29,11 +29,18 @@ Zepto(function($){
     $('#contentEarthqueaks').hide();
     $('#aboutApp').hide();
 
-    var map = L.mapbox.map('map', 'osgux.g96240ai');
+    var map = L.mapbox.map('map', 'osgux.g96240ai');    
 
     var markerLayer = L.mapbox.markerLayer()
         .loadURL('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson')
-        .addTo(map);
+        .addTo(map).on('ready',function(){
+            markerLayer.eachLayer(function(marker){
+                marker.setIcon(new L.Icon({
+                    iconUrl:'./js/earthquake.png',
+                    iconSize: [32, 37]
+                }));
+            });
+        });
 
     function updateMarker(marker){
         $('#map').removeClass('hideMap');
