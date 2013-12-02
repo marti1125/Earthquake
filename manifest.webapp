@@ -19,11 +19,11 @@
 	"locales": {
 		"en-US": {
 			"name": "Earthquakes",
-			"description": "List of Earthquakes"
+			"description": "Indicate on the map the locations where they were the last earthquake, as well as location and magnitude"
 		},
 		"es": {
             "name": "Sismos",
-            "description": "Lista de Sismos"
+            "description": "Indica en el mapa los puntos donde fueron los últimos sismo, así como lugar y la magnitud"
         }
 	},
 	"default_locale": "en-US"	
