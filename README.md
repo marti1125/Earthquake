@@ -7,6 +7,8 @@ You can install the application at:
 
 ![1](https://raw.github.com/marti1125/Earthquake/master/1.png)
 ![2](https://raw.github.com/marti1125/Earthquake/master/2.png)
+![3](https://raw.github.com/marti1125/Earthquake/master/3.png)
+![4](https://raw.github.com/marti1125/Earthquake/master/4.png)
 
 ###Maps
 * [Mapbox](https://www.mapbox.com)
