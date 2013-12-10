@@ -24,11 +24,16 @@
     <header>
         <h1 data-l10n-id="options">Options</h1>
     </header>
-    <nav>
+    <nav>        
         <h2 data-l10n-id="important">Important</h2>
         <ul>
             <li><a href="#" id="btn-last-earthqueaks" data-l10n-id="lastEarthqueaks"><i class="sy-earthquake i"></i>
                 Last Earthquakes</a></li>
+        </ul>
+        <h2 data-l10n-id="">Tweet Earthquake Dispatch</h2>
+        <ul>
+            <li><a href="#" id="btn-usgsted" data-l10n-id="">@USGSted</a></li>
+            <li><a href="#" id="btn-usgsbigquakes" data-l10n-id="">@USGSBigQuakes</a></li>
         </ul>
         <h2 data-l10n-id="pastHour">Past Hour</h2>
         <ul>
@@ -75,6 +80,8 @@
         <h1 data-l10n-id="earthquakes">Earthquakes</h1>
     </header>
     <div role="main">
+        <div id="usgsted"><p>@USGSted</p></div>
+        <div id="usgsbigquakes"><p>@USGSBigQuakes</p></div>
         <div id="contentEarthqueaks">
             <div id="messageLastEarthqueaks"></div>
             <progress class="preload"></progress> 

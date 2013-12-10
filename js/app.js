@@ -25,7 +25,9 @@ Zepto(function($){
         }                  
     }
 
-    showEarthqueaks();    
+    showEarthqueaks();
+    $('#usgsted').hide();
+    $('#usgsbigquakes').hide();
     $('#contentEarthqueaks').hide();
     $('#aboutApp').hide();
 
@@ -80,7 +82,23 @@ Zepto(function($){
             $('.preload').hide();
             $('#messageLastEarthqueaks').show();
         }
-    });    
+    });
+
+    $("#btn-usgsted").on('click', function(){        
+        $('#map').addClass('hideMap');
+        $('#aboutApp').hide();
+        $('#contentEarthqueaks').hide();
+        $('#usgsbigquakes').hide();
+        $('#usgsted').show();        
+    });
+
+    $("#btn-usgsbigquakes").on('click', function(){        
+        $('#map').addClass('hideMap');
+        $('#aboutApp').hide();
+        $('#contentEarthqueaks').hide();
+        $('#usgsted').hide();  
+        $('#usgsbigquakes').show();               
+    });   
 
     var buttons = ['sigEart-PastHour', 'M45-PastHour', 'M25-PastHour', 'M10-PastHour','allEart-PastHour',
         'sigEart-PastDay','M45-PastDay','M25-PastDay','M10-PastDay','allEart-PastDay',
