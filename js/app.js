@@ -10,20 +10,36 @@ Zepto(function($){
         t = later.setInterval(showEarthqueaks, sched);
 
     function showEarthqueaks(){       
-        $('#listEarthqueaks').html('');
-        if(navigator.onLine){           
-            $.get('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson',function(data){
-                $.each(data.features, function( index, value ) {
-                    $.each(value, function( index, result ) {
-                        if(typeof result.title != 'undefined'){
-                            $('#listEarthqueaks').append('<li>'+result.title+'</li>'); 
-                        }   
-                    });
+      $('#listEarthqueaks').html('');
+      if(navigator.onLine){           
+        $.get('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson',function(data){
+            $.each(data.features, function( index, value ) {
+                $.each(value, function( index, result ) {
+                    if(typeof result.title != 'undefined'){
+                        $('#listEarthqueaks').append('<li>'+result.title+'</li>'); 
+                    }   
                 });
-                $('.preload').hide();
-            }); 
-        }                  
+            });
+            $('.preload').hide();
+        }); 
+      }                  
     }
+
+    $.getJSON('http://glacial-gorge-2029.herokuapp.com/usgsted',function(data){ 
+      $.each(data, function( index, value ) {
+        $('#tweetsUsgsted').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
+          '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
+          '<p><strong>'+value.text+'</strong></p></li>');
+      });
+    });
+
+    $.getJSON('http://glacial-gorge-2029.herokuapp.com/USGSBigQuakes',function(data){ 
+      $.each(data, function( index, value ) {
+        $('#tweetsUSGSBigQuakes').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
+          '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
+          '<p><strong>'+value.text+'</strong></p></li>');
+      });
+    });
 
     showEarthqueaks();
     $('#usgsted').hide();
@@ -75,7 +91,9 @@ Zepto(function($){
     $("#btn-last-earthqueaks").on('click', function(){        
         $('#map').addClass('hideMap');
         $('#aboutApp').hide();
-        $('#contentEarthqueaks').show();
+        $('#usgsbigquakes').hide();
+        $('#usgsted').hide();  
+        $('#contentEarthqueaks').show();        
         if(navigator.onLine){
             $('#messageLastEarthqueaks').hide();
         } else {

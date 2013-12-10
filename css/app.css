@@ -175,3 +175,30 @@ div[role="main"] {
     border-bottom: solid #BE4D2C;
     height: auto;
 }
+/* Twitter */
+.twitterContent {
+    padding: 1rem;
+    overflow: scroll;
+    height: 91%;    
+}
+.twitterContent li {   
+    border-bottom: solid #BE4D2C;
+    height: auto;
+}
+.twitterContent li p {
+    font-size: 1.3rem;
+    padding-left: 60px;
+    font-family: FiraSansOT-Light;
+} 
+.imgLeft {
+    float: left;
+    height: 70px;
+    width: 60px;
+}
+.titleTwitter {
+    font-size: 1.4rem;
+}
+.usertwitter {
+    font-size: 1.2rem;
+    color: #9E9E9E;
+}
