@@ -25,21 +25,31 @@ Zepto(function($){
       }                  
     }
 
-    $.getJSON('http://glacial-gorge-2029.herokuapp.com/usgsted',function(data){ 
-      $.each(data, function( index, value ) {
-        $('#tweetsUsgsted').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
-          '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
-          '<p><strong>'+value.text+'</strong></p></li>');
+    if(navigator.onLine){      
+      $('.preloadUsgsted').hide();
+      $.getJSON('http://glacial-gorge-2029.herokuapp.com/usgsted',function(data){ 
+        $.each(data, function( index, value ) {          
+          $('#tweetsUsgsted').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
+            '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
+            '<p><strong>'+value.text+'</strong></p></li>');
+        });
+      });        
+    } else {
+      $('.preloadUsgsted').hide();
+    }
+    
+    if(navigator.onLine){     
+      $('.preloadUsgsbigquakes').hide();
+      $.getJSON('http://glacial-gorge-2029.herokuapp.com/USGSBigQuakes',function(data){ 
+        $.each(data, function( index, value ) {
+          $('#tweetsUSGSBigQuakes').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
+            '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
+            '<p><strong>'+value.text+'</strong></p></li>');
+        });
       });
-    });
-
-    $.getJSON('http://glacial-gorge-2029.herokuapp.com/USGSBigQuakes',function(data){ 
-      $.each(data, function( index, value ) {
-        $('#tweetsUSGSBigQuakes').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
-          '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
-          '<p><strong>'+value.text+'</strong></p></li>');
-      });
-    });
+    } else {
+      $('.preloadUsgsbigquakes').hide();
+    }
 
     showEarthqueaks();
     $('#usgsted').hide();
@@ -73,10 +83,12 @@ Zepto(function($){
     function btnEvents(btnName){
         $('#btn-' + btnName).click(function (){
             if(navigator.onLine){
-                updateMarker($(this).data('geojson'));
-            } else {
-                $('#aboutApp').hide();
-                $('#message').show();
+              $('#usgsbigquakes').hide();
+              $('#usgsted').hide();
+              updateMarker($(this).data('geojson'));
+            } else {                
+              $('#aboutApp').hide();
+              $('#message').show();
             }
         });
     }
@@ -85,6 +97,8 @@ Zepto(function($){
         $('#message').hide();
         $('#map').addClass('hideMap');
         $('#contentEarthqueaks').hide();
+        $('#usgsbigquakes').hide();
+        $('#usgsted').hide();
         $('#aboutApp').show();
     });
 
