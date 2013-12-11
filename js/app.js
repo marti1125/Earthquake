@@ -77,7 +77,14 @@ Zepto(function($){
         map.removeLayer(markerLayer);
         markerLayer = L.mapbox.markerLayer()
             .loadURL('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/'+marker+'.geojson')
-            .addTo(map);
+            .addTo(map).on('ready',function(){
+            markerLayer.eachLayer(function(marker){
+                marker.setIcon(new L.Icon({
+                    iconUrl:'./js/earthquake.png',
+                    iconSize: [32, 37]
+                }));
+            });
+        });
     }
 
     function btnEvents(btnName){
