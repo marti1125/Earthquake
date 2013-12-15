@@ -1,16 +1,55 @@
+function mostrarUrl(tweet) {
+  var url_regexp = /\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/gi;
+  return tweet.replace(url_regexp,"<a href='$1' class='tweetURL' target='_blank'>$1</a>");
+}
+
+function tweetsUsgsted(){
+  if(navigator.onLine){      
+    $('.preloadUsgsted').hide();
+    $('#tweetsUsgsted').html('');
+    $.getJSON('http://glacial-gorge-2029.herokuapp.com/usgsted',function(data){
+      $.each(data, function( index, value ) { 
+        $('#tweetsUsgsted').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
+          '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
+          '<p><strong>'+mostrarUrl(value.text)+'</strong></p></li>');
+      });
+    });        
+  } else {
+    $('.preloadUsgsted').hide();
+  }
+}
+
+function tweetsUsgsbigquakes(){
+  if(navigator.onLine){     
+    $('.preloadUsgsbigquakes').hide();
+    $('#tweetsUSGSBigQuakes').html('');
+    $.getJSON('http://glacial-gorge-2029.herokuapp.com/USGSBigQuakes',function(data){ 
+      $.each(data, function( index, value ) {
+        $('#tweetsUSGSBigQuakes').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
+          '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
+          '<p><strong>'+mostrarUrl(value.text)+'</strong></p></li>');
+      });
+    });
+  } else {
+    $('.preloadUsgsbigquakes').hide();
+  }
+}
+
 var myScroll, myScroll2,
   pullDownEl, pullDownOffset;
 
 function pullDownAction () {
   setTimeout(function () { 
-     document.getElementById('scroller').style.transform = 'translate(0px, -63px) scale(1) translateZ(0px)';  
+    document.getElementById('scroller').style.transform = 'translate(0px, -63px) scale(1) translateZ(0px)'; 
+    tweetsUsgsted(); 
     myScroll.refresh();
   }, 1000);
 }
 
 function pullDownAction2 () {
   setTimeout(function () { 
-     document.getElementById('scroller2').style.transform = 'translate(0px, -63px) scale(1) translateZ(0px)';  
+     document.getElementById('scroller2').style.transform = 'translate(0px, -63px) scale(1) translateZ(0px)'; 
+    
     myScroll.refresh();
   }, 1000);
 }
@@ -97,12 +136,7 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 
 document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
 
-Zepto(function($){
-
-    function mostrarUrl(tweet) {
-      var url_regexp = /\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/gi;
-      return tweet.replace(url_regexp,"<a href='$1' class='tweetURL' target='_blank'>$1</a>");
-    }
+Zepto(function($){    
 
     if(!navigator.onLine){
         $('#map').addClass('hideMap'); 
@@ -129,32 +163,8 @@ Zepto(function($){
       }                  
     }
 
-    if(navigator.onLine){      
-      $('.preloadUsgsted').hide();
-      $.getJSON('http://glacial-gorge-2029.herokuapp.com/usgsted',function(data){
-        $.each(data, function( index, value ) {   
-
-          $('#tweetsUsgsted').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
-            '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
-            '<p><strong>'+mostrarUrl(value.text)+'</strong></p></li>');
-        });
-      });        
-    } else {
-      $('.preloadUsgsted').hide();
-    }
-    
-    if(navigator.onLine){     
-      $('.preloadUsgsbigquakes').hide();
-      $.getJSON('http://glacial-gorge-2029.herokuapp.com/USGSBigQuakes',function(data){ 
-        $.each(data, function( index, value ) {
-          $('#tweetsUSGSBigQuakes').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
-            '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
-            '<p><strong>'+mostrarUrl(value.text)+'</strong></p></li>');
-        });
-      });
-    } else {
-      $('.preloadUsgsbigquakes').hide();
-    }
+    tweetsUsgsted();
+    tweetsUsgsbigquakes();
 
     showEarthqueaks();
     $('#usgsted').hide();
