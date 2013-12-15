@@ -1,208 +1,316 @@
 @font-face {
-    font-family: FiraSansOT-Light;
-    src: url(../fonts/FiraSansOT-Light.otf);
+  font-family: FiraSansOT-Light;
+  src: url(../fonts/FiraSansOT-Light.otf);
 }
 @font-face {
-    font-family: FiraSansOT-Medium;
-    src: url(../fonts/FiraSansOT-Medium.otf);
+  font-family: FiraSansOT-Medium;
+  src: url(../fonts/FiraSansOT-Medium.otf);
 }
 @font-face {
-    font-family: FiraSansOT-Regular;
-    src: url(../fonts/FiraSansOT-Regular.otf);
+  font-family: FiraSansOT-Regular;
+  src: url(../fonts/FiraSansOT-Regular.otf);
 }
 @font-face {
-    font-family: FiraSansOT-Bold;
-    src: url(../fonts/FiraSansOT-Bold.otf);
+  font-family: FiraSansOT-Bold;
+  src: url(../fonts/FiraSansOT-Bold.otf);
 }
 html {
-    height: 100%;
-    font-size: 62.5%; /* Setting base font to 10px and define all your units in rem. 1rem = 10px */
+  height: 100%;
+  font-size: 62.5%; /* Setting base font to 10px and define all your units in rem. 1rem = 10px */
 }
 a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 body {
-    margin: 0;
-    height: 100%;
-    display: block;
-    overflow: hidden;
+  margin: 0;
+  height: 100%;
+  display: block;
+  overflow: hidden;
 }
 .hidden {
-    visibility: hidden;
+  visibility: hidden;
 }
 section[role="region"] {
-    height: 100%;
+  height: 100%;
 }
 section[role="region"] > header.fixed:first-child {
-    position: absolute;
-    width: 100%;
+  position: absolute;
+  width: 100%;
 }
 .scrollable {
-    overflow: scroll;
-    height: 100%;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    position: relative;
+  overflow: scroll;
+  height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  position: relative;
 }
 .scrollable.header {
-    border-top: transparent solid 5rem;
+  border-top: transparent solid 5rem;
 }
 /* Setting proper paddings and margins */
 section[role="region"] > .content {
-    padding: 0 3rem 1.5rem 3rem;
-    background: #fff;
+  padding: 0 3rem 1.5rem 3rem;
+  background: #fff;
 }
 section[role="region"] > .content header h2 {
-   margin: 3rem -3rem 1.5rem -3rem;
+ margin: 3rem -3rem 1.5rem -3rem;
 }
 section[role="region"] > .content header:first-child h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 section[role="region"] > .content [data-type="list"] {
-    margin: 0 -3rem;
+  margin: 0 -3rem;
 }
 section[role="region"] > .content [data-type="list"] li > p {
-    margin: 0 1.5rem;
+  margin: 0 1.5rem;
 }
 section[role="region"] > .content [data-type="list"] li > a {
-    margin: 0 1.5rem;
+  margin: 0 1.5rem;
 }
 section[role="region"] > .content [data-type="list"] li > a:after {
-    left: -1.5rem;
-    right: -1.5rem;
+  left: -1.5rem;
+  right: -1.5rem;
 }
 section[role="region"] > .content [data-type="list"] header {
-    padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
 }
 section[role="region"] > .content [data-type="list"] li > a > aside:not(.pack-end) {
-    margin-left: -1.5rem;
+  margin-left: -1.5rem;
 }
 [aria-disabled="true"] {
-    pointer-events: none;
+  pointer-events: none;
 }
 /* Fonts */
 h1 { /* Main header */
-    font-size: 2.5rem;
-    font-weight: normal;
-    font-family: FiraSansOT-Bold;
+  font-size: 2.5rem;
+  font-weight: normal;
+  font-family: FiraSansOT-Bold;
 }
 
 h2 { /* Subheader, Dialog title */
-    font-size: 1.6rem;
-    font-weight: normal;
-    font-family: FiraSansOT-Medium;
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-family: FiraSansOT-Medium;
 }
 p {
-    font-size: 1.6rem;
-    font-weight: normal;
-    line-height: 2.5rem;
-    font-family: FiraSansOT-Regular;
+  font-size: 1.6rem;
+  font-weight: normal;
+  line-height: 2.5rem;
+  font-family: FiraSansOT-Regular;
 }
 p.large { /* Dialog body */
-    font-size: 2.3rem;
-    font-weight: 300;
-    line-height: 3rem;
+  font-size: 2.3rem;
+  font-weight: 300;
+  line-height: 3rem;
 }
 p.alt { /* Body medium, Buttons */
-    font-size: 1.7rem;
-    font-weight: 500;
-    line-height: 2.2rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  line-height: 2.2rem;
 }
 p.small { /* Status bar */
-    font-size: 1.5rem;
-    line-height: 2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 p.mini { /* Fine print */
-    font-size: 1.4rem;
-    line-height: 1.9rem;
+  font-size: 1.4rem;
+  line-height: 1.9rem;
 }
 p.micro { /* App icon label */
-    font-size: 1.3rem;
-    line-height: 1.8rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
 }
 progress {
-    margin-top: 20%;
-    margin-left: 45%;
+  margin-top: 20%;
+  margin-left: 45%;
 }
 ul, ol, li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 1.9rem;
-    font-weight: normal;
-    line-height: 2.5rem;
-    font-family: FiraSansOT-Light;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.9rem;
+  font-weight: normal;
+  line-height: 2.5rem;
+  font-family: FiraSansOT-Light;
 }
 div[role="main"] {
-    background: #fff;
-    height: calc(100% - 5rem);
-    overflow: hidden;
+  background: #fff;
+  height: calc(100% - 5rem);
+  overflow: hidden;
 }
 #map {
-	height: 430px; 
+height: 430px; 
 }
 .hideMap {
-    display: none;
+  display: none;
 }
 #message h1{
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 #messageLastEarthqueaks h1{
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 #aboutApp {
-    padding: 1rem;
-    overflow: scroll;
-    height: 95%; 
+  padding: 1rem;
+  overflow: scroll;
+  height: 95%; 
 }
 .urlBoton {
-    background-color: #227BC9;
-    border-collapse: separate;
-    border-radius: 5px;
-    padding: 4px;
+  background-color: #227BC9;
+  border-collapse: separate;
+  border-radius: 5px;
+  padding: 4px;
 }
 #contentEarthqueaks {
-    padding: 1rem;
-    overflow: scroll;
-    height: 91%;    
+  padding: 1rem;
+  overflow: scroll;
+  height: 91%;    
 }
 #listEarthqueaks li {
-    font-size: 1.3rem;
-    border-bottom: solid #BE4D2C;
-    height: auto;
+  font-size: 1.3rem;
+  border-bottom: solid #BE4D2C;
+  height: auto;
 }
 /* Twitter */
 .twitterContent {
-    padding: 1rem;
-    overflow: scroll;
-    height: 91%;    
+  padding: 1rem;
+  overflow: scroll;
+  height: 91%;    
 }
 .twitterContent li {   
-    border-bottom: solid #BE4D2C;
-    height: auto;
+  border-bottom: solid #BE4D2C;
+  height: auto;
 }
 .twitterContent li p {
-    font-size: 1.3rem;
-    padding-left: 60px;
-    font-family: FiraSansOT-Light;
+  font-size: 1.3rem;
+  padding-left: 60px;
+  font-family: FiraSansOT-Light;
 } 
 .imgLeft {
-    float: left;
-    height: 70px;
-    width: 60px;
+  float: left;
+  height: 70px;
+  width: 60px;
 }
 .titleTwitter {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 .usertwitter {
-    font-size: 1.2rem;
-    color: #9E9E9E;
+  font-size: 1.2rem;
+  color: #9E9E9E;
 }
 .tweetURL {
-    color: black;
-    border-bottom: 1px solid black;
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+/**
+ *
+ * Pull down styles
+ *
+ */
+#pullDown, #pullUp {
+  background:#fff;
+  height:40px;
+  line-height:40px;
+  padding:5px 10px;
+  border-bottom:1px solid #ccc;
+  font-weight:bold;
+  font-size:14px;
+  color:#888;
+}
+#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+  display:block; float:left;
+  width:40px; height:40px;
+  background:url(pull-icon@2x.png) 0 0 no-repeat;
+  -webkit-background-size:40px 80px; background-size:40px 80px;
+  -webkit-transition-property:-webkit-transform;
+  -webkit-transition-duration:250ms;
+  //transition-duration: 250ms;  
+}
+#pullDown .pullDownIcon {
+  -webkit-transform:rotate(0deg) translateZ(0);
+  -moz-transform: rotate(0deg) translateZ(0);
+}
+#pullUp .pullUpIcon  {
+  -webkit-transform:rotate(-180deg) translateZ(0);
+  -moz-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullDown.flip .pullDownIcon {
+  -webkit-transform:rotate(-180deg) translateZ(0);
+  -moz-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullUp.flip .pullUpIcon {
+  -webkit-transform:rotate(0deg) translateZ(0);
+  -moz-transform:rotate(0deg) translateZ(0);
+}
+
+#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+  background-position:0 100%;
+  -webkit-transform:rotate(0deg) translateZ(0);
+  -webkit-transition-duration:0ms;
+  //transition-duration:0ms;
+
+  -webkit-animation-name:loading;
+  -webkit-animation-duration:2s;
+  //transition-duration:2s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-timing-function:linear;
+}
+
+/*@keyframes loading {
+  from { -moz-transform:rotate(0deg) translateZ(0); }
+  to { -moz-transform:rotate(360deg) translateZ(0); }
+}*/
+
+@-webkit-keyframes loading {
+  from { -webkit-transform:rotate(0deg) translateZ(0); }
+  to { -webkit-transform:rotate(360deg) translateZ(0); }
+}
+
+#pullDown2 {
+  background:#fff;
+  height:40px;
+  line-height:40px;
+  padding:5px 10px;
+  border-bottom:1px solid #ccc;
+  font-weight:bold;
+  font-size:14px;
+  color:#888;
+}
+#pullDown2 .pullDownIcon2 {
+  display:block; float:left;
+  width:40px; height:40px;
+  background:url(pull-icon@2x.png) 0 0 no-repeat;
+  -webkit-background-size:40px 80px; background-size:40px 80px;
+  -webkit-transition-property:-webkit-transform;
+  -webkit-transition-duration:250ms;
+  transition-duration:250ms;  
+}
+#pullDown2 .pullDownIcon2 {
+  -webkit-transform:rotate(0deg) translateZ(0);
+  -moz-transform: rotate(0deg) translateZ(0);
+}
+
+#pullDown2.flip .pullDownIcon2 {
+  -webkit-transform:rotate(-180deg) translateZ(0);
+  -moz-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullDown2.loading .pullDownIcon2 {
+  background-position:0 100%;
+  -webkit-transform:rotate(0deg) translateZ(0);
+  -webkit-transition-duration:0ms;
+  transition-duration:0ms;
+
+  -webkit-animation-name:loading;
+  -webkit-animation-duration:2s;
+  transition-duration:2s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-timing-function:linear;
 }

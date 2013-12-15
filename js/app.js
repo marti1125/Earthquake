@@ -1,3 +1,102 @@
+var myScroll, myScroll2,
+  pullDownEl, pullDownOffset;
+
+function pullDownAction () {
+  setTimeout(function () { 
+     document.getElementById('scroller').style.transform = 'translate(0px, -63px) scale(1) translateZ(0px)';  
+    myScroll.refresh();
+  }, 1000);
+}
+
+function pullDownAction2 () {
+  setTimeout(function () { 
+     document.getElementById('scroller2').style.transform = 'translate(0px, -63px) scale(1) translateZ(0px)';  
+    myScroll.refresh();
+  }, 1000);
+}
+
+function loaded() {
+    pullDownEl = document.getElementById('pullDown');
+    pullDownOffset = pullDownEl.offsetHeight;
+
+    pullDownEl2 = document.getElementById('pullDown2');
+    pullDownOffset2 = pullDownEl2.offsetHeight;
+
+    myScroll2 = new iScroll('wrapper2', {
+
+      useTransition: true,
+      topOffset: pullDownOffset2,
+      onRefresh: function () {       
+        if (pullDownEl2.className.match('loading')) {
+          pullDownEl2.className = '';
+          pullDownEl2.querySelector('.pullDownLabel2').innerHTML = 'Pull down to refresh...';
+        }
+      },
+      onScrollMove: function () {
+        //alert(this.y )
+        if (this.y > 5 && !pullDownEl2.className.match('flip')) {
+          pullDownEl2.className = 'flip';
+          pullDownEl2.querySelector('.pullDownLabel2').innerHTML = 'Release to refresh...';
+          this.minScrollY = 0;
+        } else if (this.y < 5 && pullDownEl2.className.match('flip')) {
+          pullDownEl2.className = '';
+          pullDownEl2.querySelector('.pullDownLabel2').innerHTML = 'Pull down to refresh...';
+          this.minScrollY = -pullDownOffset2;
+        }
+      },
+      onScrollEnd: function () {
+        if (pullDownEl2.className.match('flip')) {
+          pullDownEl2.className = 'loading';
+          pullDownEl2.querySelector('.pullDownLabel2').innerHTML = 'Loading...';        
+          pullDownAction2(); // Execute custom function (ajax call?)
+        }
+      }
+
+    });
+
+    myScroll = new iScroll('wrapper', {
+
+      useTransition: true,
+      topOffset: pullDownOffset,
+      onRefresh: function () {       
+        if (pullDownEl.className.match('loading')) {
+          pullDownEl.className = '';
+          pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
+        }
+      },
+      onScrollMove: function () {
+        //alert(this.y )
+        if (this.y > 5 && !pullDownEl.className.match('flip')) {
+          pullDownEl.className = 'flip';
+          pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh...';
+          this.minScrollY = 0;
+        } else if (this.y < 5 && pullDownEl.className.match('flip')) {
+          pullDownEl.className = '';
+          pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
+          this.minScrollY = -pullDownOffset;
+        }
+      },
+      onScrollEnd: function () {
+        if (pullDownEl.className.match('flip')) {
+          pullDownEl.className = 'loading';
+          pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';        
+          pullDownAction(); // Execute custom function (ajax call?)
+        }
+      }
+
+    });   
+
+    setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800); 
+    document.getElementById('scroller').style.transform = 'translate(0px, -63px) scale(1) translateZ(0px)'; 
+
+    setTimeout(function () { document.getElementById('wrapper2').style.left = '0'; }, 800); 
+    document.getElementById('scroller2').style.transform = 'translate(0px, -63px) scale(1) translateZ(0px)';  
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+
 Zepto(function($){
 
     function mostrarUrl(tweet) {

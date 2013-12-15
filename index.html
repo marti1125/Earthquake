@@ -17,69 +17,7 @@
   <script type="text/javascript" src='js/mapbox.js'></script>
   <script type="text/javascript" src="js/l10n.js"></script>
   <script type="text/javascript" src="js/iscroll.js"></script>
- 	<script type="text/javascript" src="js/app.js"></script> 
-
-  <style type="text/css" media="all">
-
-/**
- *
- * Pull down styles
- *
- */
-#pullDown, #pullUp {
-  background:#fff;
-  height:40px;
-  line-height:40px;
-  padding:5px 10px;
-  border-bottom:1px solid #ccc;
-  font-weight:bold;
-  font-size:14px;
-  color:#888;
-}
-#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
-  display:block; float:left;
-  width:40px; height:40px;
-  background:url(pull-icon@2x.png) 0 0 no-repeat;
-  -webkit-background-size:40px 80px; background-size:40px 80px;
-  -webkit-transition-property:-webkit-transform;
-  -webkit-transition-duration:250ms;  
-}
-#pullDown .pullDownIcon {
-  -webkit-transform:rotate(0deg) translateZ(0);
-  -moz-transform: rotate(0deg) translateZ(0);
-}
-#pullUp .pullUpIcon  {
-  -webkit-transform:rotate(-180deg) translateZ(0);
-  -moz-transform:rotate(-180deg) translateZ(0);
-}
-
-#pullDown.flip .pullDownIcon {
-  -webkit-transform:rotate(-180deg) translateZ(0);
-  -moz-transform:rotate(-180deg) translateZ(0);
-}
-
-#pullUp.flip .pullUpIcon {
-  -webkit-transform:rotate(0deg) translateZ(0);
-  -moz-transform:rotate(0deg) translateZ(0);
-}
-
-#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
-  background-position:0 100%;
-  -webkit-transform:rotate(0deg) translateZ(0);
-  -webkit-transition-duration:0ms;
-
-  -webkit-animation-name:loading;
-  -webkit-animation-duration:2s;
-  -webkit-animation-iteration-count:infinite;
-  -webkit-animation-timing-function:linear;
-}
-
-@-webkit-keyframes loading {
-  from { -webkit-transform:rotate(0deg) translateZ(0); }
-  to { -webkit-transform:rotate(360deg) translateZ(0); }
-}
-
-</style> 
+ 	<script type="text/javascript" src="js/app.js"></script>
 
 </head>
 <body>
@@ -157,9 +95,16 @@
       </div>
     </div>
     <div id="usgsbigquakes" class="twitterContent">        
-      <progress class="preloadUsgsbigquakes"></progress> 
-      <ul id="tweetsUSGSBigQuakes">
-      </ul>
+      <progress class="preloadUsgsbigquakes"></progress>
+      <div id="wrapper2">        
+        <div id="scroller2">
+          <div id="pullDown2">
+            <span class="pullDownIcon2"></span><span class="pullDownLabel2">Pull down to refresh...</span>
+          </div>
+          <ul id="tweetsUSGSBigQuakes">
+          </ul>        
+        </div>
+      </div>      
     </div>
     <div id="contentEarthqueaks">          
         <progress class="preload"></progress>
@@ -180,68 +125,5 @@
     </div>
   </div>
 </section>
-<script type="text/javascript">
-
-var myScroll,
-  pullDownEl, pullDownOffset,
-  pullUpEl, pullUpOffset;
-
-function pullDownAction () {
-  setTimeout(function () { 
-     document.getElementById('scroller').style.transform = 'translate(0px, -63px) scale(1) translateZ(0px)';  
-    myScroll.refresh();
-  }, 1000);
-}
-
-function pullUpAction () {
-  setTimeout(function () { // <-- Simulate network congestion, remove setTimeout from production!
-    myScroll.refresh();   // Remember to refresh when contents are loaded (ie: on ajax completion)
-  }, 1000); // <-- Simulate network congestion, remove setTimeout from production!
-}
-
-function loaded() {
-    pullDownEl = document.getElementById('pullDown');
-    pullDownOffset = pullDownEl.offsetHeight;
-
-    myScroll = new iScroll('wrapper', {
-
-      useTransition: true,
-      topOffset: pullDownOffset,
-      onRefresh: function () {       
-        if (pullDownEl.className.match('loading')) {
-          pullDownEl.className = '';
-          pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-        }
-      },
-      onScrollMove: function () {
-        //alert(this.y )
-        if (this.y > 5 && !pullDownEl.className.match('flip')) {
-          pullDownEl.className = 'flip';
-          pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh...';
-          this.minScrollY = 0;
-        } else if (this.y < 5 && pullDownEl.className.match('flip')) {
-          pullDownEl.className = '';
-          pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-          this.minScrollY = -pullDownOffset;
-        }
-      },
-      onScrollEnd: function () {
-        if (pullDownEl.className.match('flip')) {
-          pullDownEl.className = 'loading';
-          pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';        
-          pullDownAction(); // Execute custom function (ajax call?)
-        }
-      }
-
-    });   
-
-    setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800); 
-    document.getElementById('scroller').style.transform = 'translate(0px, -63px) scale(1) translateZ(0px)';  
-}
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
-document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
-</script>
 </body>
 </html>
