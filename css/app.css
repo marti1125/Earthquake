@@ -202,3 +202,7 @@ div[role="main"] {
     font-size: 1.2rem;
     color: #9E9E9E;
 }
+.tweetURL {
+    color: black;
+    border-bottom: 1px solid black;
+}

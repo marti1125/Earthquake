@@ -1,5 +1,10 @@
 Zepto(function($){
 
+    function mostrarUrl(tweet) {
+      var url_regexp = /\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/gi;
+      return tweet.replace(url_regexp,"<a href='$1' class='tweetURL' target='_blank'>$1</a>");
+    }
+
     if(!navigator.onLine){
         $('#map').addClass('hideMap'); 
         $('#message').append('<h1 data-l10n-id="requiredInternet">Internet connection required<h1>');
@@ -27,11 +32,12 @@ Zepto(function($){
 
     if(navigator.onLine){      
       $('.preloadUsgsted').hide();
-      $.getJSON('http://glacial-gorge-2029.herokuapp.com/usgsted',function(data){ 
-        $.each(data, function( index, value ) {          
+      $.getJSON('http://glacial-gorge-2029.herokuapp.com/usgsted',function(data){
+        $.each(data, function( index, value ) {   
+
           $('#tweetsUsgsted').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
             '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
-            '<p><strong>'+value.text+'</strong></p></li>');
+            '<p><strong>'+mostrarUrl(value.text)+'</strong></p></li>');
         });
       });        
     } else {
@@ -44,7 +50,7 @@ Zepto(function($){
         $.each(data, function( index, value ) {
           $('#tweetsUSGSBigQuakes').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
             '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
-            '<p><strong>'+value.text+'</strong></p></li>');
+            '<p><strong>'+mostrarUrl(value.text)+'</strong></p></li>');
         });
       });
     } else {
