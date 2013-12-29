@@ -17,6 +17,7 @@ You can install the application at:
 
 ###What library it use?
 * [zeptojs](http://zeptojs.com/)
+* [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster)
 * [webL10n](https://github.com/fabi1cazenave/webL10n)
 
 ###Others

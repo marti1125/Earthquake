@@ -71,34 +71,44 @@ Zepto(function($){
     $('#contentEarthqueaks').hide();
     $('#aboutApp').hide();
 
-    var map = L.mapbox.map('map', 'osgux.g96240ai');    
+    var map = L.mapbox.map('map', 'osgux.g96240ai');  
+
+    var markers = new L.MarkerClusterGroup();
 
     var markerLayer = L.mapbox.markerLayer()
-        .loadURL('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson')
-        .addTo(map).on('ready',function(){
+        .loadURL('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson').on('ready',function(){
             markerLayer.eachLayer(function(marker){
-                marker.setIcon(new L.Icon({
+                marker.setIcon( new L.Icon({
                     iconUrl:'./js/earthquake.png',
                     iconSize: [32, 37]
-                }));
+                })); 
+                markers.addLayer(marker);          
             });
         });
 
+    map.addLayer(markers);      
+
     function updateMarker(marker){
+        map.remove(); 
+        map = L.mapbox.map('map', 'osgux.g96240ai');  
         $('#map').removeClass('hideMap');
         $('#aboutApp').hide();
         $('#contentEarthqueaks').hide();
-        map.removeLayer(markerLayer);
-        markerLayer = L.mapbox.markerLayer()
+        
+        var markers = new L.MarkerClusterGroup();
+
+        var markerLayer = L.mapbox.markerLayer()
             .loadURL('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/'+marker+'.geojson')
-            .addTo(map).on('ready',function(){
+            .on('ready',function(){
             markerLayer.eachLayer(function(marker){
                 marker.setIcon(new L.Icon({
                     iconUrl:'./js/earthquake.png',
                     iconSize: [32, 37]
-                }));
+                }));                  
+                markers.addLayer(marker);      
             });
         });
+        map.addLayer(markers);        
     }
 
     function btnEvents(btnName){
