@@ -1,7 +1,7 @@
 {
 	"name": "Earthquake",
 	"description": "List of Earthquakes",
-	"version": "1.5.1",
+	"version": "1.6",
 	"launch_path": "/index.html",
 	"icons": {
 		"256": "/icons/256.png",
