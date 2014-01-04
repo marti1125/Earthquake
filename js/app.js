@@ -89,15 +89,16 @@ Zepto(function($){
     map.addLayer(markers);      
 
     function updateMarker(marker){
-        map.remove(); 
-        map = L.mapbox.map('map', 'osgux.g96240ai');  
+        map.removeLayer(markers); // not delete layer only plus markers
+        //map.remove(); 
+        //map = L.mapbox.map('map', 'osgux.g96240ai');  
         $('#map').removeClass('hideMap');
         $('#aboutApp').hide();
         $('#contentEarthqueaks').hide();
         
-        var markers = new L.MarkerClusterGroup();
+        //var markers = new L.MarkerClusterGroup();
 
-        var markerLayer = L.mapbox.markerLayer()
+        markerLayer = L.mapbox.markerLayer()
             .loadURL('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/'+marker+'.geojson')
             .on('ready',function(){
             markerLayer.eachLayer(function(marker){
