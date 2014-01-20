@@ -1,3 +1,8 @@
+@media all and (max-height: 640px) and (min-height: 490px){
+  #map {
+    height: 575px !important; 
+  }
+}
 @font-face {
   font-family: FiraSansOT-Light;
   src: url(../fonts/FiraSansOT-Light.otf);
