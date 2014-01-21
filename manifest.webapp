@@ -24,6 +24,10 @@
 		"es": {
             "name": "Sismos",
             "description": "Indica en el mapa los puntos donde fueron los últimos sismo, así como lugar y la magnitud"
+        },
+        "fr": {
+            "name": "Séismes",
+            "description": "Indiquer sur la carte les endroits où ils sont le dernier tremblement de terre, ainsi que l'emplacement et l'ampleur"
         }
 	},
 	"default_locale": "en-US"	
