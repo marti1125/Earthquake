@@ -27,7 +27,7 @@
         },
         "fr": {
             "name": "Séismes",
-            "description": "Indiquer sur la carte les endroits où ils sont le dernier tremblement de terre, ainsi que l'emplacement et l'ampleur"
+            "description": "Place sur une carte les emplacements des derniers tremblements de terre ainsi que leur ampleur"
         }
 	},
 	"default_locale": "en-US"	
