@@ -1,4 +1,4 @@
-function mostrarUrl(tweet) {
+function showUrl(tweet) {
   var url_regexp = /\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/gi;
   return tweet.replace(url_regexp,"<a href='$1' class='tweetURL' target='_blank'>$1</a>");
 }
@@ -11,7 +11,7 @@ function tweetsUsgsted(){
       $.each(data, function( index, value ) { 
         $('#tweetsUsgsted').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
           '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
-          '<p><strong>'+mostrarUrl(value.text)+'</strong></p></li>');
+          '<p><strong>'+showUrl(value.text)+'</strong></p></li>');
       });
     });        
   } else {
@@ -27,7 +27,7 @@ function tweetsUsgsbigquakes(){
       $.each(data, function( index, value ) {
         $('#tweetsUSGSBigQuakes').append('<li><div class="imgLeft"><img src="'+value.user.profile_image_url+'"/></div>' + 
           '<h1 class="titleTwitter">'+value.user.name+'<span class="usertwitter"> @'+value.user.screen_name+'</span></h1>' +
-          '<p><strong>'+mostrarUrl(value.text)+'</strong></p></li>');
+          '<p><strong>'+showUrl(value.text)+'</strong></p></li>');
       });
     });
   } else {
@@ -49,7 +49,7 @@ Zepto(function($){
     function showEarthqueaks(){       
       $('#listEarthqueaks').html('');
       if(navigator.onLine){           
-        $.get('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson',function(data){
+        $.get('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson',function(data){
             $.each(data.features, function( index, value ) {
                 $.each(value, function( index, result ) {
                     if(typeof result.title != 'undefined'){
@@ -76,7 +76,7 @@ Zepto(function($){
     var markers = new L.MarkerClusterGroup();
 
     var markerLayer = L.mapbox.markerLayer()
-        .loadURL('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson').on('ready',function(){
+        .loadURL('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson').on('ready',function(){
             markerLayer.eachLayer(function(marker){
                 marker.setIcon( new L.Icon({
                     iconUrl:'./js/earthquake.png',
@@ -99,7 +99,7 @@ Zepto(function($){
         //var markers = new L.MarkerClusterGroup();
 
         markerLayer = L.mapbox.markerLayer()
-            .loadURL('http://www.corsproxy.com/earthquake.usgs.gov/earthquakes/feed/v1.0/summary/'+marker+'.geojson')
+            .loadURL('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/'+marker+'.geojson')
             .on('ready',function(){
             markerLayer.eachLayer(function(marker){
                 marker.setIcon(new L.Icon({
