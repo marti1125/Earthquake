@@ -34,13 +34,13 @@ You can install the application at:
 ![5](https://raw.github.com/marti1125/Earthquake/master/5.png)
 ![6](https://raw.github.com/marti1125/Earthquake/master/6.png)
 
-###Maps
+### Maps
 * [Mapbox](https://www.mapbox.com)
 
-###What library it use?
+### What library it use?
 * [zeptojs](http://zeptojs.com/)
 * [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster)
 * [webL10n](https://github.com/fabi1cazenave/webL10n)
 
-###Others
+### Others
 * [CORS Proxy](http://www.corsproxy.com/)
